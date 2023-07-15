@@ -1,7 +1,7 @@
 <script>
 import ProductsGallery from "../components/Global/ProductsGallery.vue";
 import SortProducts from "../components/Products/SortProduct.vue";
-import showCaretedAndWished from "../components/Modal/showCaretedAndWished.vue";
+
 /*state or data*/
 import { useCategoryStore } from "../store/category";
 
@@ -9,7 +9,7 @@ import { useCategoryStore } from "../store/category";
 
 export default {
   name: "HomeView",
-  components: { ProductsGallery, SortProducts, showCaretedAndWished },
+  components: { ProductsGallery, SortProducts },
   setup() {
     const { availableCategories } = useCategoryStore();
 

@@ -14,6 +14,7 @@
       </h1>
       <div class="flex w-full justify-between gap-x-2">
         <button
+          type="button"
           class="w-3/4 bg-purple-800 text-base capitalize text-white md:text-xl"
         >
           add to cart
@@ -38,7 +39,7 @@
 <script>
 import { inject } from "vue";
 import DescriptionBox from "./DescriptionBox.vue";
-import { Purchase } from "../../script/Cart/purchase";
+import { Purchase, cartedList } from "../../script/Cart/purchase";
 export default {
   name: "Card",
   components: { DescriptionBox },

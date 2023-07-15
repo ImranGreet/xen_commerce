@@ -4,21 +4,16 @@ import { cartedList, wishedList } from "./purchase";
 export class OperationOnCartAndWishedList {
   /*move product to wish,cart list*/
   moveProductToWish(product) {
-    AlertMessage("Product Move to Wish List").message();
-
     wishedList.value.push(product);
   }
 
   moveProductToCart(product) {
-    AlertMessage("Product Move to Wish List").message();
-    wishedList.value.push(product);
+    cartedList.value.push(product);
   }
 
   /*move product to wish,cart list*/
 
   saveForLater(product) {
-    new AlertMessage("Product Move to Wish List").message();
-
     wishedList.value.push(product);
   }
 

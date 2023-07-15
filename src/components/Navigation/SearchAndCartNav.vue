@@ -46,7 +46,10 @@
         ({{ amountOfWishedItems.length }})
       </router-link>
 
-      <router-link to="#" class="text-xl flex justify-center items-center">
+      <router-link
+        :to="{ name: 'cart' }"
+        class="text-xl flex justify-center items-center"
+      >
         <span class="font-serif text-xl">
           <font-awesome-icon icon="fa-solid fa-cart-plus" />
         </span>
@@ -75,8 +78,8 @@ import {
 import { useCategoryStore } from "../../store/category";
 
 /*components*/
-import showCaretedAndWishedVue from "../Modal/showCaretedAndWished.vue";
-import ShowCaretedAndWished from "../Modal/showCaretedAndWished.vue";
+import showCaretedAndWishedVue from "../Cart/showCaretedAndWished.vue";
+import ShowCaretedAndWished from "../Cart/showCaretedAndWished.vue";
 import category from "../Utility/category.vue";
 
 export default {

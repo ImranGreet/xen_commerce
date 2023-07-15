@@ -14,6 +14,10 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faStar, faHeart, faBell } from "@fortawesome/free-regular-svg-icons";
 
+/*global compos*/
+import cartUtility from "./components/Slots/cartUtility.vue";
+/*global copos*/
+
 import {
   faCartPlus,
   faChevronLeft,
@@ -38,13 +42,12 @@ library.add(
 );
 /*font awesome end*/
 
-
-
 const app = createApp(App);
 const pinia = createPinia();
 
 app.use(router);
 app.use(pinia);
 app.component("font-awesome-icon", FontAwesomeIcon);
+app.component("cartUtility", cartUtility);
 app.use(plugin, defaultConfig);
 app.mount("#app");
