@@ -14,10 +14,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faStar, faHeart, faBell } from "@fortawesome/free-regular-svg-icons";
 
-/*global compos*/
-import cartUtility from "./components/Slots/cartUtility.vue";
-/*global copos*/
-
 import {
   faCartPlus,
   faChevronLeft,
@@ -26,6 +22,7 @@ import {
   faMagnifyingGlass,
   faGlobe,
   faBars,
+  faLock,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faFacebook,
@@ -38,9 +35,14 @@ library.add(
   faMagnifyingGlass,
   faBell,
   faGlobe,
-  faBars
+  faBars,
+  faLock
 );
 /*font awesome end*/
+
+/*global compos*/
+import cartUtility from "./components/Slots/cartUtility.vue";
+/*global copos*/
 
 const app = createApp(App);
 const pinia = createPinia();

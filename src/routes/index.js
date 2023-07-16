@@ -76,10 +76,16 @@ const routes = [
       // },
 
       {
-        path: "products/cart-products",
+        path: "/products/cart-products",
         name: "cart",
         component: () => import("../Pages/WishAndCart/CartList.vue"),
       },
+      {
+        path: "/products/cart-products/checkout",
+        name: "checkout",
+        component: () => import("../Pages/Checkout.vue"),
+      },
+      /*checkout*/
     ],
   },
 

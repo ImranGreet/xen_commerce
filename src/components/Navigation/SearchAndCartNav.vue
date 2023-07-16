@@ -62,6 +62,7 @@
       >
         <span class="text-xl">I</span>
       </router-link>
+
       <button class="text-purple-900 rounded block lg:hidden cursor-pointer">
         <font-awesome-icon :icon="['fas', 'bars']" />
       </button>
