@@ -42,6 +42,7 @@ library.add(
 
 /*global compos*/
 import cartUtility from "./components/Slots/cartUtility.vue";
+import ProductInfo from "./components/Global/ProductInfo.vue";
 /*global copos*/
 
 const app = createApp(App);
@@ -51,5 +52,6 @@ app.use(router);
 app.use(pinia);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.component("cartUtility", cartUtility);
+app.component("ProductInfo", ProductInfo);
 app.use(plugin, defaultConfig);
 app.mount("#app");

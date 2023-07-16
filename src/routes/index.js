@@ -69,11 +69,11 @@ const routes = [
       },
 
       /*purchase*/
-      // {
-      //   path: "products/wish-products",
-      //   name: "wish",
-      //   component: () => import("../P"),
-      // },
+      {
+        path: "products/wish-products",
+        name: "wish",
+        component: () => import("../Pages/WishAndCart/WishList.vue"),
+      },
 
       {
         path: "/products/cart-products",

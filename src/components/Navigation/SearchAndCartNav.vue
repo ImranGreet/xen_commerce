@@ -39,7 +39,10 @@
     <!-- category end -->
 
     <div class="flex justify-center lg:justify-between w-1/2 lg:w-[10%]">
-      <router-link to="#" class="text-xl flex justify-center items-center">
+      <router-link
+        :to="{ name: 'wish' }"
+        class="text-xl flex justify-center items-center"
+      >
         <span class="font-serif text-xl">
           <font-awesome-icon icon="fa-regular fa-heart" />
         </span>
