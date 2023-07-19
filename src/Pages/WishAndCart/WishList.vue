@@ -1,5 +1,7 @@
 <template>
-  <WishProducts />
+  <section>
+    <WishProducts />
+  </section>
 </template>
 
 <script>
