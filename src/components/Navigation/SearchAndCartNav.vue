@@ -44,7 +44,8 @@
 
       <div class="flex justify-center lg:justify-between w-1/2 lg:w-[10%]">
         <router-link
-          @mouseover="togglingOnModal.showModal()"
+          @mouseover="modalShow = true"
+          @mouseout="modalShow = false"
           :to="{ name: 'wish' }"
           class="text-xl flex justify-center items-center"
         >
@@ -55,6 +56,8 @@
         </router-link>
 
         <router-link
+          @mouseover="modalShow = true"
+          @mouseout="modalShow = false"
           :to="{ name: 'cart' }"
           class="text-xl flex justify-center items-center"
         >
@@ -76,21 +79,11 @@
         </button>
       </div>
     </div>
-    <CartView
-      class="absolute right-20"
-      :class="{
-        block: togglingOnModal.showModalOnScreen,
-        hidden: !togglingOnModal.showModalOnScreen,
-      }"
-    />
+    <CartView class="absolute right-20 block" v-if="modalShow" />
+    <CartView class="absolute right-20 hidden" v-else />
 
-    <WishView
-      class="absolute right-20"
-      :class="{
-        block: togglingOnModal.showModalOnScreen,
-        hidden: !togglingOnModal.showModalOnScreen,
-      }"
-    />
+    <WishView class="absolute right-20 block" v-if="modalShow" />
+    <WishView class="absolute right-20 hidden" v-else />
   </section>
 </template>
 
@@ -99,7 +92,7 @@ import {
   amountOfCartedItems,
   amountOfWishedItems,
 } from "../../script/Cart/purchase";
-import { togglingOnModal } from "../../script/utility/modal";
+
 /*state*/
 
 import { useCategoryStore } from "../../store/category";
@@ -124,13 +117,15 @@ export default {
   setup() {
     /*category*/
     const { availableCategories } = useCategoryStore();
+    let modalShow = false;
+
     return {
       amountOfCartedItems,
       amountOfWishedItems,
       /*categories*/
       availableCategories,
       /*modal*/
-      togglingOnModal,
+      modalShow,
     };
   },
 };
