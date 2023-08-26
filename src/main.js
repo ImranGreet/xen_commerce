@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faStar, faHeart, faBell } from "@fortawesome/free-regular-svg-icons";
 
+
 import {
   faCartPlus,
   faChevronLeft,
@@ -23,6 +24,7 @@ import {
   faGlobe,
   faBars,
   faLock,
+  faXmark
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faFacebook,
@@ -36,7 +38,8 @@ library.add(
   faBell,
   faGlobe,
   faBars,
-  faLock
+  faLock,
+  faXmark
 );
 /*font awesome end*/
 

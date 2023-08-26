@@ -1,5 +1,5 @@
 <template>
-  <section class="w-96 bg-white shadow-md border-r border-gray-200">
+  <section class="w-96 bg-white  border-r border-gray-200">
     <div class="px-2 py-2 bg-slate-100">
       <div class="w-full flex flex-col justify-between">
         <div class="flex justify-between items-center gap-x-4">
@@ -58,7 +58,7 @@
     </ul>
     <!-- end navigation menu -->
     <!-- more option -->
-    <div class="border-t border-gray-300">
+    <div class="border-t border-gray-300 ">
       <!-- navigation-menu -->
       <ul class="flex flex-col justify-between items-stretch px-2 text-lg py-3">
         <li>
