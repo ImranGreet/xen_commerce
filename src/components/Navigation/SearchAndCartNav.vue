@@ -84,7 +84,9 @@
 
     <WishView class="absolute right-20 block" v-if="modalShow" />
     <WishView class="absolute right-20 hidden" v-else />
+    
   </section>
+
 </template>
 
 <script>
