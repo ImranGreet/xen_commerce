@@ -10,6 +10,8 @@ import Footer from "../Pages/Footer.vue";
 import Navigation from "../Pages/Navigation.vue";
 import NavigationMenu from "../components/modal/Navigation-menu.vue";
 import LanguageSelection from "../components/modal/Language-selection.vue";
+import Profile from "../components/Utility/Profile.vue";
+
 
 export default {
   name: "UserLayout",
@@ -18,6 +20,7 @@ export default {
     Navigation,
     NavigationMenu,
     LanguageSelection,
+    Profile
   },
 };
 </script>
