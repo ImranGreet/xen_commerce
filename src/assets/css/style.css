@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* registration */
+  .input-element-container {
+    @apply w-full flex flex-col lg:flex-row justify-between items-center border border-gray-100/75 rounded-md px-3 py-2 gap-y-2 lg:gap-x-2 bg-gray-200;
+  }
+  .input-element {
+    @apply px-6 py-2 text-xl font-semibold tracking-wider focus:outline-none w-full rounded-lg placeholder:text-center placeholder:text-sm placeholder:font-semibold  text-gray-800;
+  }
+  .input-element-label {
+    @apply text-lg font-semibold leading-relaxed tracking-wider;
+  }
+  .submit-button {
+    @apply px-6 py-2 text-xl font-semibold tracking-wider focus:outline-none w-full rounded-md placeholder:text-center lg:placeholder:text-start placeholder:text-xl placeholder:font-semibold bg-blue-700 text-white lg:hover:bg-blue-700/70;
+  }
+  .form-text {
+    @apply px-2 py-1 text-center;
+  }
+  .warning-text {
+    @apply text-sm text-red-600 tracking-widest leading-relaxed my-2;
+  }
+}
