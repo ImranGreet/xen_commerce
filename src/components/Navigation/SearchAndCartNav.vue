@@ -1,11 +1,13 @@
 <template>
   <section class="relative">
     <div
-      class="flex w-full lg:w-11/12 mx-auto justify-between px-2 lg:py-3 lg:gap-x-12 z-50"
+      class="flex w-full px-6 py-5 items-center lg:mx-auto justify-between shadow-md"
     >
-      <router-link :to="{ name: 'Home' }" class="uppercase lg:hidden block">
-        xenmesh
-      </router-link>
+      <div class="block lg:hidden">
+        <button class="text-gray-900 rounded cursor-pointer">
+          <font-awesome-icon :icon="['fas', 'bars']" />
+        </button>
+      </div>
       <!-- category start -->
       <div
         class="lg:flex justify-between items-center gap-x-6 w-1/2 lg:w-3/4 hidden"
@@ -42,7 +44,7 @@
       </div>
       <!-- category end -->
 
-      <div class="flex justify-center lg:justify-between w-1/2 lg:w-[10%]">
+      <div class="flex justify-center lg:justify-between">
         <router-link
           @mouseover="modalShow = true"
           @mouseout="modalShow = false"
@@ -56,8 +58,6 @@
         </router-link>
 
         <router-link
-          @mouseover="modalShow = true"
-          @mouseout="modalShow = false"
           :to="{ name: 'cart' }"
           class="text-xl flex justify-center items-center"
         >
@@ -73,20 +73,9 @@
         >
           <span class="text-xl">I</span>
         </router-link>
-
-        <button class="text-purple-900 rounded block lg:hidden cursor-pointer">
-          <font-awesome-icon :icon="['fas', 'bars']" />
-        </button>
       </div>
     </div>
-    <CartView class="absolute right-20 block" v-if="modalShow" />
-    <CartView class="absolute right-20 hidden" v-else />
-
-    <WishView class="absolute right-20 block" v-if="modalShow" />
-    <WishView class="absolute right-20 hidden" v-else />
-    
   </section>
-
 </template>
 
 <script>
@@ -100,20 +89,17 @@ import {
 import { useCategoryStore } from "../../store/category";
 
 /*components*/
-import showCaretedAndWishedVue from "../Cart/showCaretedAndWished.vue";
-import ShowCaretedAndWished from "../Cart/showCaretedAndWished.vue";
-import category from "../Utility/category.vue";
+
 import CartView from "../modal/cartView.vue";
 import WishView from "../modal/WishView.vue";
+import CartAndWishItemsContainer from "../universal/CartAndWishItemsContainer.vue";
 
 export default {
   name: "SearchAndCartNav",
   components: {
-    category,
-    ShowCaretedAndWished,
-    showCaretedAndWishedVue,
     CartView,
     WishView,
+    CartAndWishItemsContainer,
   },
 
   setup() {

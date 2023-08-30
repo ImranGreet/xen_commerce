@@ -1,8 +1,9 @@
 <template>
   <section class="min-h-screen flex flex-col justify-between gap-y-2">
-    <SearchAndCartNav class="bg-indigo-950 text-white" />
-    <div class="max-w-7xl mx-auto">lorem32</div>
-
+    <SearchAndCartNav />
+    <div class="max-w-7xl mx-auto">
+      <router-view></router-view>
+    </div>
     <Footer />
   </section>
 </template>

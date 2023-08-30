@@ -4,17 +4,15 @@
       class="w-full min-h-screen h-fit flex flex-col justify-center items-center"
     >
       <div
-        class="mx-auto h-full w-11/12 lg:w-[850px] shadow-md lg:shadow-xl bg-gray-400/10 rounded-md shadow-gray-200 border"
+        class="mx-auto h-full w-11/12 lg:w-[850px] p-8 shadow-md lg:shadow-lg bg-gray-400/10 rounded-md shadow-gray-200 border bg-white"
       >
         <h1
-          class="text-lg lg:text-2xl leading-relaxed tracking-wide font-semibold text-center capitalize"
+          class="text-lg lg:text-2xl leading-relaxed tracking-wide font-semibold text-center capitalize my-2"
         >
           Create a Account
         </h1>
         <!-- form -->
-        <form
-          class="w-full px-2 lg:px-5 py-3 lg:py-5 flex flex-col justify-between space-y-4"
-        >
+        <form class="w-full flex flex-col justify-between space-y-4">
           <div class="input-element-container">
             <div class="w-full lg:w-1/2">
               <label for="email" class="input-element-label">Email</label>
@@ -23,7 +21,9 @@
                 placeholder="Enter Your Email"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
+              <ErrorShow class="hidden"
+                >Email Address Is Already Taken</ErrorShow
+              >
             </div>
             <div class="w-full lg:w-1/2">
               <label
@@ -36,22 +36,23 @@
                 placeholder="Enter Your Username"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
           </div>
           <!-- password -->
-          <div class="w-full px-4">
-            <label
-              for="email"
-              class="text-lg font-semibold leading-relaxed tracking-wider"
-              >Password</label
-            >
-            <input
-              type="text"
-              placeholder="Enter Your Username"
-              class="input-element placeholder:text-start"
-            />
-            <small class="warning-text">Email Address Is Already Taken</small>
+
+          <div class="input-element-container">
+            <div class="w-full">
+              <label
+                for="email"
+                class="text-lg font-semibold leading-relaxed tracking-wider"
+                >Password</label
+              >
+              <input
+                type="text"
+                placeholder="Enter Your Username"
+                class="input-element"
+              />
+            </div>
           </div>
           <!-- password end -->
           <!-- name start -->
@@ -63,7 +64,6 @@
                 placeholder="Enter Your first name"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
             <div class="w-full lg:w-1/2">
               <label for="email" class="input-element-label">Last Name</label>
@@ -72,7 +72,6 @@
                 placeholder="Enter Your last name"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
           </div>
           <!-- name end -->
@@ -93,7 +92,6 @@
                 placeholder="Enter Your city name"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
             <div class="w-full lg:w-1/2">
               <label for="street" class="input-element-label"
@@ -104,7 +102,6 @@
                 placeholder="Enter Your street name"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
           </div>
           <div class="input-element-container">
@@ -117,7 +114,6 @@
                 placeholder="Enter Your street number "
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
             <div class="w-full lg:w-1/2">
               <label for="text" class="input-element-label">Zipcode</label>
@@ -126,18 +122,20 @@
                 placeholder="Enter Zipcode"
                 class="input-element"
               />
-              <small class="warning-text">Email Address Is Already Taken</small>
             </div>
           </div>
 
-          <div class="w-full px-4">
-            <label for="phone" class="input-element-label">Phone Number</label>
-            <input
-              type="text"
-              placeholder="Enter Your Phone Number"
-              class="input-element placeholder:text-start"
-            />
-            <small class="warning-text">Email Address Is Already Taken</small>
+          <div class="input-element-container">
+            <div class="w-full">
+              <label for="phone" class="input-element-label"
+                >Phone Number</label
+              >
+              <input
+                type="text"
+                placeholder="Enter Your Phone Number"
+                class="input-element placeholder:text-start"
+              />
+            </div>
           </div>
           <!-- address info end -->
           <!-- geolocation start -->
@@ -167,6 +165,14 @@
             <button class="submit-button">Submit</button>
           </div>
         </form>
+        <p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-3">
+          I have A acount !
+          <router-link
+            :to="{ name: 'Login' }"
+            class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+            >Sign In</router-link
+          >
+        </p>
         <!-- form end -->
       </div>
     </div>
@@ -176,10 +182,11 @@
 <script>
 import CustomInput from "../../components/Auth/CustomInput.vue";
 import CustomLabel from "../../components/Auth/CustomLabel.vue";
+import ErrorShow from "../../components/Auth/ErrorShow.vue";
 
 export default {
   name: "Registration-form",
-  components: { CustomInput, CustomLabel },
+  components: { CustomInput, CustomLabel, ErrorShow },
 
   setup() {
     const FirstName = "Imran Hossain";
