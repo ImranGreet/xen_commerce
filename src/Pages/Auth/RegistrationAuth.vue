@@ -50,7 +50,7 @@
               <input
                 type="text"
                 placeholder="Enter Your Username"
-                class="input-element"
+                class="input-element placeholder:text-start"
               />
             </div>
           </div>

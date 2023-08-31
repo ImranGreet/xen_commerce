@@ -1,21 +1,21 @@
 <template>
   <section class="relative">
     <div
-      class="flex w-full px-6 py-5 items-center lg:mx-auto justify-between shadow-md"
+      class="flex w-full px-2 lg:px-6 lg:py-5 items-center lg:mx-auto justify-between shadow-md"
     >
       <div class="block lg:hidden">
         <button class="text-gray-900 rounded cursor-pointer">
           <font-awesome-icon :icon="['fas', 'bars']" />
         </button>
       </div>
+
+      <router-link :to="{ name: 'Home' }" class="uppercase">
+        xenmesh
+      </router-link>
       <!-- category start -->
       <div
         class="lg:flex justify-between items-center gap-x-6 w-1/2 lg:w-3/4 hidden"
       >
-        <router-link :to="{ name: 'Home' }" class="uppercase">
-          xenmesh
-        </router-link>
-
         <router-link
           v-for="cat in availableCategories"
           :key="cat"
@@ -90,16 +90,14 @@ import { useCategoryStore } from "../../store/category";
 
 /*components*/
 
-import CartView from "../modal/cartView.vue";
-import WishView from "../modal/WishView.vue";
-import CartAndWishItemsContainer from "../universal/CartAndWishItemsContainer.vue";
+import CartView from "../Cart/cartView.vue";
+import WishView from "../Cart/WishView.vue";
 
 export default {
   name: "SearchAndCartNav",
   components: {
     CartView,
     WishView,
-    CartAndWishItemsContainer,
   },
 
   setup() {

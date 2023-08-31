@@ -6,12 +6,4 @@
   </div>
 </template>
 
-<script>
-export default {
-    name:"Container",
-    setup(){
-        let overflow = false;
-        
-    }
-}
-</script>
+

@@ -8,7 +8,7 @@
     @apply w-full flex flex-col lg:flex-row justify-between items-center border border-gray-100/75 rounded-md px-3 py-2 gap-y-2 lg:gap-x-2 bg-gray-200;
   }
   .input-element {
-    @apply px-6 py-2 text-xl font-semibold tracking-wider focus:outline-none w-full rounded-lg placeholder:text-center placeholder:text-sm placeholder:font-semibold  text-gray-800 bg-gray-200 border border-rose-700/20;
+    @apply px-6 py-2 text-xl font-semibold tracking-wider focus:outline-none w-full rounded-lg placeholder:text-center placeholder:text-sm placeholder:font-semibold  text-gray-800 bg-gray-200 border border-slate-700/20;
   }
   .input-element-label {
     @apply text-lg font-semibold leading-relaxed tracking-wider;
