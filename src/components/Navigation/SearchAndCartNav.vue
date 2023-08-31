@@ -1,7 +1,7 @@
 <template>
   <section class="relative">
     <div
-      class="flex w-full px-2 lg:px-6 lg:py-5 items-center lg:mx-auto justify-between shadow-md"
+      class="flex w-full py-3 px-2 lg:px-6 lg:py-5 items-center lg:mx-auto justify-between shadow-md"
     >
       <div class="block lg:hidden">
         <button class="text-gray-900 rounded cursor-pointer">
@@ -44,10 +44,10 @@
       </div>
       <!-- category end -->
 
-      <div class="flex justify-center lg:justify-between">
+      <div class="flex justify-center lg:justify-between gap-x-1 lg:gap-x-4">
         <router-link
           @mouseover="modalShow = true"
-          @mouseout="modalShow = false"
+          @mouseleave="modalShow = !modalShow"
           :to="{ name: 'wish' }"
           class="text-xl flex justify-center items-center"
         >
@@ -75,6 +75,10 @@
         </router-link>
       </div>
     </div>
+    <WishAndCartItemsContainer
+      v-if="modalShow"
+      class="block absolute top-20 z-40 right-7"
+    />
   </section>
 </template>
 
@@ -87,23 +91,38 @@ import {
 /*state*/
 
 import { useCategoryStore } from "../../store/category";
+import WishAndCartItemsContainer from "../Cart/WishAndCartItemsContainer.vue";
 
 /*components*/
-
-import CartView from "../Cart/cartView.vue";
-import WishView from "../Cart/WishView.vue";
 
 export default {
   name: "SearchAndCartNav",
   components: {
-    CartView,
-    WishView,
+    WishAndCartItemsContainer,
   },
 
   setup() {
     /*category*/
     const { availableCategories } = useCategoryStore();
     let modalShow = false;
+    /*close and disclose wish and cart items*/
+    let discloseModal = function () {
+      if (modalShow === false) {
+        modalShow = true;
+        console.log(modalShow);
+      }
+    };
+    let closeModal = function () {
+      if (modalShow === true) {
+        modalShow = false;
+        console.log(modalShow);
+      }
+    };
+
+    let shutDown = function () {
+      modalShow = false;
+      console.log(modalShow);
+    };
 
     return {
       amountOfCartedItems,
@@ -112,6 +131,10 @@ export default {
       availableCategories,
       /*modal*/
       modalShow,
+      /*methods*/
+      discloseModal,
+      closeModal,
+      shutDown,
     };
   },
 };

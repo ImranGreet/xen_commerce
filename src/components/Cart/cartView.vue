@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col justify-between items-start px-4 py-3">
     <div
-      class="w-[400px] bg-slate-50 hover:shadow-md py-5 border rounded-md hover:delay-300 lg:ease-in-out lg:duration-300 mx-auto"
+      class="w-full lg:w-[400px] bg-slate-50 hover:shadow-md py-5 border rounded-md hover:delay-300 lg:ease-in-out lg:duration-300 mx-auto"
     >
-      <div class="w-[350px] mx-auto bg-inherit">
+      <div class="w-full lg:w-[350px] mx-auto bg-inherit">
         <div class="w-full">
           <div class="flex justify-center items-start gap-x-2">
             <img
@@ -21,10 +21,10 @@
           </div>
           <!-- purchase button -->
           <button
-          class="w-full px-4 py-2 mt-2 block leading-relaxed tracking-wide text-center text-gray-500 border border-gray-500 bg-white shadow-sm hover:bg-slate-600 hover:text-white focus:outline-none hover:delay-100 lg:ease-in-out lg:duration-200 rounded-sm"
-        >
-          Add To Cart
-        </button>
+            class="w-full px-4 py-2 mt-2 block leading-relaxed tracking-wide text-center text-gray-500 border border-gray-500 bg-white shadow-sm hover:bg-slate-600 hover:text-white focus:outline-none hover:delay-100 lg:ease-in-out lg:duration-200 rounded-sm"
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>
