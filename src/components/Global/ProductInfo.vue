@@ -10,42 +10,28 @@
         class="z-20 h-full w-full rounded-sm"
       />
 
-      <div
-        class="absolute inset-x-0 top-[100px] flex justify-between rounded-md bg-pink-800/70 p-1 px-2 text-white md:rounded-none md:bg-gray-800/50 lg:hover:delay-150 lg:hover:duration-200 lg:group-hover:flex xl:top-[108px] xl:hidden"
-      >
+      <div class="product-purchase-button-container">
         <button
-          v-if="cartedList.includes(product)"
-          disabled
+          v-bind:disabled="cartedList.includes(product)"
           type="button"
-          class="text-lg uppercase tracking-wide cursor-not-allowed"
+          class="text-lg uppercase tracking-wide"
+          :class="{
+            'cursor-not-allowed': cartedList.includes(product),
+            'cursor-pointer': !cartedList.includes(product),
+          }"
           @click="purchase.addProductToCart(product)"
         >
           <span><font-awesome-icon icon="fa-solid fa-cart-plus" /></span>
         </button>
 
         <button
-          v-else
           type="button"
-          class="text-lg uppercase tracking-wide cursor-pointer"
-          @click="purchase.addProductToCart(product)"
-        >
-          <span><font-awesome-icon icon="fa-solid fa-cart-plus" /></span>
-        </button>
-
-        <button
-          v-if="wishedList.includes(product)"
-          disabled
-          type="button"
-          class="text-lg uppercase tracking-wide cursor-not-allowed"
-          @click="purchase.addProductToWish(product)"
-        >
-          <span><font-awesome-icon icon="fa-regular fa-heart" /></span>
-        </button>
-
-        <button
-          v-else
-          type="button"
-          class="text-lg uppercase tracking-wide cursor-pointer"
+          v-bind:disabled="wishedList.includes(product)"
+          class="text-lg uppercase tracking-wide"
+          :class="{
+            'cursor-not-allowed': wishedList.includes(product),
+            'cursor-pointer': !wishedList.includes(product),
+          }"
           @click="purchase.addProductToWish(product)"
         >
           <span><font-awesome-icon icon="fa-regular fa-heart" /></span>

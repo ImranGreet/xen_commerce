@@ -5,7 +5,7 @@
 @layer components {
   /* registration */
   .input-element-container {
-    @apply w-full flex flex-col lg:flex-row justify-between items-center border border-gray-100/75 rounded-md px-3 py-2 gap-y-2 lg:gap-x-2 ;
+    @apply w-full flex flex-col lg:flex-row justify-between items-center border border-gray-100/75 rounded-md px-3 py-2 gap-y-2 lg:gap-x-2;
   }
   .input-element {
     @apply px-6 py-2 text-xl font-semibold tracking-wider focus:outline-none w-full rounded-lg placeholder:text-center placeholder:text-sm placeholder:font-semibold placeholder:text-gray-950/60 text-gray-800  border border-slate-700/20;
@@ -22,4 +22,11 @@
   .warning-text {
     @apply text-sm text-red-600 tracking-widest leading-relaxed my-2;
   }
+
+  /* global components start */
+  /*product info*/
+  .product-purchase-button-container {
+    @apply absolute inset-x-0 top-[100px] flex justify-between rounded-md bg-pink-800/70 p-1 px-2 text-white md:rounded-none md:bg-gray-800/50 lg:hover:delay-150 lg:hover:duration-200 lg:group-hover:flex xl:top-[108px] xl:hidden;
+  }
+  /* global components end */
 }
