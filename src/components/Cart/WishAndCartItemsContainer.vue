@@ -3,8 +3,7 @@
     <cart-view></cart-view>
     <cart-view></cart-view>
     <cart-view></cart-view>
-    <cart-view></cart-view>
-    <cart-view></cart-view>
+   
   </container>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative">
+  <section class="relative z-10">
     <div
       class="flex w-full py-3 px-2 lg:px-6 lg:py-5 items-center lg:mx-auto justify-between shadow-md"
     >
@@ -12,6 +12,7 @@
       <router-link :to="{ name: 'Home' }" class="uppercase">
         xenmesh
       </router-link>
+
       <!-- category start -->
       <div
         class="lg:flex justify-between items-center gap-x-6 w-1/2 lg:w-3/4 hidden"
@@ -46,8 +47,8 @@
 
       <div class="flex justify-center lg:justify-between gap-x-1 lg:gap-x-4">
         <router-link
-          @mouseover="modalShow = true"
-          @mouseleave="modalShow = !modalShow"
+          @mouseover="showProperty.cartItems = true"
+          @mouseout="showProperty.cartItems = false"
           :to="{ name: 'wish' }"
           class="text-xl flex justify-center items-center"
         >
@@ -58,6 +59,9 @@
         </router-link>
 
         <router-link
+          @mouseenter="showProperty.cartItems = true"
+          @mouseover="showProperty.cartItems = true"
+          @mouseout="showProperty.cartItems = false"
           :to="{ name: 'cart' }"
           class="text-xl flex justify-center items-center"
         >
@@ -68,6 +72,9 @@
         </router-link>
 
         <router-link
+          @mouseenter="showProperty.profileView = true"
+          @mouseover="showProperty.profileView = true"
+          @mouseout="showProperty.profileView = false"
           to="#"
           class="hidden lg:flex h-8 w-8 flex-col items-center justify-center rounded-full bg-gray-700 text-white"
         >
@@ -76,13 +83,23 @@
       </div>
     </div>
     <WishAndCartItemsContainer
-      v-if="modalShow"
-      class="block absolute top-20 z-40 right-7"
+      v-show="showProperty.cartItems"
+      class="block absolute top-20 z-0 right-7"
+    />
+    <Profile
+      v-show="showProperty.profileView"
+      class="block absolute top-20 z-0 right-0 "
+    />
+
+    <WishAndCartItemsContainer
+      v-show="showProperty.cartItems"
+      class="block absolute top-20 z-0 right-5"
     />
   </section>
 </template>
 
 <script>
+import { ref } from "vue";
 import {
   amountOfCartedItems,
   amountOfWishedItems,
@@ -92,6 +109,7 @@ import {
 
 import { useCategoryStore } from "../../store/category";
 import WishAndCartItemsContainer from "../Cart/WishAndCartItemsContainer.vue";
+import Profile from "../Utility/Profile.vue";
 
 /*components*/
 
@@ -99,30 +117,21 @@ export default {
   name: "SearchAndCartNav",
   components: {
     WishAndCartItemsContainer,
+    Profile,
   },
 
   setup() {
     /*category*/
     const { availableCategories } = useCategoryStore();
-    let modalShow = false;
+    let modalShow = ref(false);
     /*close and disclose wish and cart items*/
-    let discloseModal = function () {
-      if (modalShow === false) {
-        modalShow = true;
-        console.log(modalShow);
-      }
-    };
-    let closeModal = function () {
-      if (modalShow === true) {
-        modalShow = false;
-        console.log(modalShow);
-      }
-    };
+    let showProperty = ref({
+      wishItems: false,
+      cartItems: false,
+      profileView: false,
+    });
 
-    let shutDown = function () {
-      modalShow = false;
-      console.log(modalShow);
-    };
+    console.log(showProperty.value.cartItems);
 
     return {
       amountOfCartedItems,
@@ -131,10 +140,7 @@ export default {
       availableCategories,
       /*modal*/
       modalShow,
-      /*methods*/
-      discloseModal,
-      closeModal,
-      shutDown,
+      showProperty,
     };
   },
 };
