@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { provide } from "vue";
+import { onMounted, onUnmounted, provide } from "vue";
 /*components*/
 import Showcase from "../components/ProductDetails/Showcase.vue";
 import Card from "../components/ProductDetails/Card.vue";
@@ -18,13 +18,14 @@ import DescriptionBox from "../components/ProductDetails/DescriptionBox.vue";
 import RelatedProducts from "../components/ProductDetails/RelatedProducts.vue";
 /*store*/
 import { useProductDetails } from "../store/productDetails";
+import { fullWindow, halfScreen } from "../script/utility/layout";
 
 export default {
   name: "ProductDetails",
   components: { Showcase, Card, DescriptionBox, RelatedProducts },
   setup() {
     const { productInformationDetails } = useProductDetails();
-    
+
     const { id, title, image, price, description, rating, category } =
       productInformationDetails;
 
@@ -37,8 +38,14 @@ export default {
     provide("productInformation", productInformationDetails);
     provide("pro-title", title);
 
+    /*set full screen on product details page*/
+    onMounted(() => fullWindow());
+    onUnmounted(() => halfScreen());
+
     return {
       productInformationDetails,
+      fullWindow,
+      halfScreen,
     };
   },
 };

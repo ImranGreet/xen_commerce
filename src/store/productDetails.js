@@ -11,7 +11,7 @@ const useProductDetails = defineStore("productDetails", () => {
         `https://fakestoreapi.com/products/${id}`
       );
       productInformation.value = response.data;
-      console.log(response.data);
+      console.log(productInformation.value);
     } catch (error) {}
   };
   return {

@@ -44,18 +44,11 @@ const routes = [
         beforeEnter: async (to, from) => {
           const { retrieveProductInformation } = useProductDetails();
           await retrieveProductInformation(to.params.productId);
+          
         },
+       
         component: () => import("../Pages/ProductDetails.vue"),
-      },
-
-      {
-        path: "/products-information/:productId",
-        name: "product-details",
-        beforeEnter: async (to, from) => {
-          const { retrieveProductInformation } = useProductDetails();
-          await retrieveProductInformation(to.params.productId);
-        },
-        component: () => import("../Pages/ProductDetails.vue"),
+        
       },
 
       {

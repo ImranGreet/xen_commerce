@@ -131,7 +131,7 @@ export default {
       profileView: false,
     });
 
-    console.log(showProperty.value.cartItems);
+    
 
     return {
       amountOfCartedItems,

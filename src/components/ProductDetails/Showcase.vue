@@ -14,13 +14,13 @@
         {{ productDetails.description }} ...
       </h3>
       <div class="space-x-2 text-yellow-500">
-        <span>4.8</span>
+        <span>{{ Number(productDetails.rating.rate) }}</span>
         <div class="inline">
           <span v-for="(star, index) in 5" :key="index">
             <font-awesome-icon icon="fa-regular fa-star" />
           </span>
         </div>
-        <span class="tracking-wider">(75214)</span>
+        <span class="tracking-wider">({{ Number(productDetails.rating.count) }})</span>
       </div>
       <h4 class="font-bold capitalize tracking-widest">
         <span class="font-normal tracking-tight">Category :</span>

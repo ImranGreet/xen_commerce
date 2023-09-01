@@ -1,7 +1,12 @@
 <template>
   <section class="min-h-screen flex flex-col justify-between gap-y-2">
     <SearchAndCartNav />
-    <div class="max-w-7xl mx-auto">
+    <div
+      :class="{
+        'max-w-7xl mx-auto': !fullWidth,
+        'max-w-full mx-auto': fullWidth,
+      }"
+    >
       <router-view></router-view>
     </div>
     <Footer />
@@ -9,14 +14,20 @@
 </template>
 
 <script>
-/*components*/
 import SearchAndCartNav from "../components/Navigation/SearchAndCartNav.vue";
 import Footer from "../Pages/Footer.vue";
+import { fullWidth } from "../script/utility/layout";
+
 export default {
   name: "UserLayout",
   components: {
     SearchAndCartNav,
     Footer,
+  },
+  setup() {
+    return {
+      fullWidth,
+    };
   },
 };
 </script>
