@@ -9,8 +9,26 @@
         loading="lazy"
         class="z-20 h-full w-full rounded-sm"
       />
+      <button
+        type="button"
+        :class="{
+          'block text-lg uppercase tracking-wide absolute top-2 right-6':
+            wishButton,
+          hidden: !wishButton,
+        }"
+      >
+        <span
+          class="w-8 h-8 rounded-full bg-slate-200 flex flex-col justify-center items-center text-gray"
+          ><font-awesome-icon icon="fa-regular fa-heart "
+        /></span>
+      </button>
 
-      <div class="product-purchase-button-container">
+      <div
+        :class="{
+          'product-purchase-button-container ': !wishButton,
+          hidden: wishButton,
+        }"
+      >
         <button
           v-bind:disabled="cartedList.includes(product)"
           type="button"
@@ -69,6 +87,7 @@
 
 <script>
 import { Purchase, wishedList, cartedList } from "../../script/Cart/purchase";
+import { wishButton } from "../../script/utility/layout";
 
 export default {
   name: "ProductInfo",
@@ -110,6 +129,8 @@ export default {
       cartedList,
       /*methods*/
       purchase,
+      /*show and hide wish button on wish page*/
+      wishButton,
     };
   },
 };

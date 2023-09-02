@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[650px] flex justify-between items-start gap-x-3 py-3"
+    class="grid grid-cols-4 py-3"
     v-for="cartItem in cartedList"
     :key="cartItem.id"
   >
@@ -46,5 +46,3 @@ export default {
   },
 };
 </script>
-
-

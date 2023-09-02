@@ -5,7 +5,12 @@
 </template>
 
 <script>
+import { onMounted, onUnmounted } from "vue";
 import WishProducts from "../../components/Cart/wishProducts.vue";
+import {
+  closeWishButton,
+  discloseWishButton,
+} from "../../script/utility/layout";
 
 export default {
   name: "Wishlist",
@@ -13,6 +18,8 @@ export default {
     WishProducts,
   },
   setup() {
+    onMounted(() => discloseWishButton());
+    onUnmounted(() => closeWishButton());
     return {};
   },
 };

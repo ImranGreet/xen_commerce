@@ -11,20 +11,18 @@
 
       <cartProduct />
     </div>
-    <cart-price />
   </section>
 </template>
 
 <script>
 import { cartedList } from "../../script/Cart/purchase";
-import CartPrice from "./CartPrice.vue";
+
 import cartProduct from "./cartProduct.vue";
 
 export default {
   name: "showCartedAndWished",
   components: {
     cartProduct,
-    CartPrice,
   },
   setup() {
     return {

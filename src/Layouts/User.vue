@@ -1,9 +1,9 @@
 <template>
-  <section class="min-h-screen flex flex-col justify-between gap-y-2">
+  <section class="min-h-screen">
     <SearchAndCartNav />
     <div
       :class="{
-        'max-w-7xl mx-auto': !fullWidth,
+        'max-w-7xl mx-auto ': !fullWidth,
         'max-w-full mx-auto': fullWidth,
       }"
     >
