@@ -1,5 +1,10 @@
 <template>
-  <section class="min-h-screen">
+  <section
+    :class="{
+      'min-h-screen': noFlex,
+      'flex flex-col justify-between min-h-screen': !noFlex,
+    }"
+  >
     <SearchAndCartNav />
     <div
       :class="{
@@ -16,7 +21,7 @@
 <script>
 import SearchAndCartNav from "../components/Navigation/SearchAndCartNav.vue";
 import Footer from "../Pages/Footer.vue";
-import { fullWidth } from "../script/utility/layout";
+import { fullWidth, noFlex } from "../script/utility/layout";
 
 export default {
   name: "UserLayout",
@@ -27,6 +32,7 @@ export default {
   setup() {
     return {
       fullWidth,
+      noFlex,
     };
   },
 };
