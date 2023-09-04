@@ -3,8 +3,11 @@
     <div
       class="flex w-full py-3 px-2 lg:px-6 lg:py-5 items-center lg:mx-auto justify-between shadow-md"
     >
-      <div class="block lg:hidden">
-        <button class="text-gray-900 rounded cursor-pointer">
+      <div class="block xl:hidden">
+        <button
+          @click="discloseModal = !discloseModal"
+          class="text-gray-900 rounded cursor-pointer"
+        >
           <font-awesome-icon :icon="['fas', 'bars']" />
         </button>
       </div>
@@ -15,7 +18,7 @@
 
       <!-- category start -->
       <div
-        class="lg:flex justify-between items-center gap-x-6 w-1/2 lg:w-3/4 hidden"
+        class="xl:flex justify-between items-center gap-x-6 w-1/2 lg:w-3/4 hidden"
       >
         <router-link
           v-for="cat in availableCategories"
@@ -72,6 +75,18 @@
         </router-link>
 
         <router-link
+          @mouseenter="showProperty.notification = true"
+          @mouseover="showProperty.notification = true"
+          @mouseout="showProperty.notification = false"
+          to="#"
+          class="text-xl flex justify-center items-center"
+        >
+          <span class="font-serif text-xl">
+            <font-awesome-icon icon="fa-regular fa-bell" />
+          </span>
+        </router-link>
+
+        <router-link
           @mouseenter="showProperty.profileView = true"
           @mouseover="showProperty.profileView = true"
           @mouseout="showProperty.profileView = false"
@@ -83,33 +98,40 @@
       </div>
     </div>
     <WishAndCartItemsContainer
-      v-show="showProperty.cartItems"
-      class="block absolute top-20 z-0 right-7"
+      v-if="showProperty.cartItems"
+      class="inline absolute top-20 z-0 right-7"
     />
     <Profile
-      v-show="showProperty.profileView"
-      class="block absolute top-20 z-0 right-0 "
+      v-if="showProperty.profileView"
+      class="inline absolute top-20 z-0 right-0"
     />
 
     <WishAndCartItemsContainer
-      v-show="showProperty.cartItems"
-      class="block absolute top-20 z-0 right-5"
+      v-if="showProperty.cartItems"
+      class="inline absolute top-20 z-0 right-5"
+    />
+
+    <Notifications
+      v-if="showProperty.notification"
+      class="inline absolute top-20 z-0 right-5"
     />
   </section>
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import {
   amountOfCartedItems,
   amountOfWishedItems,
 } from "../../script/Cart/purchase";
+import { discloseModal } from "../../script/utility/layout";
 
 /*state*/
 
 import { useCategoryStore } from "../../store/category";
 import WishAndCartItemsContainer from "../Cart/WishAndCartItemsContainer.vue";
 import Profile from "../Utility/Profile.vue";
+import Notifications from "../modal/Notifications.vue";
 
 /*components*/
 
@@ -118,6 +140,7 @@ export default {
   components: {
     WishAndCartItemsContainer,
     Profile,
+    Notifications,
   },
 
   setup() {
@@ -129,9 +152,8 @@ export default {
       wishItems: false,
       cartItems: false,
       profileView: false,
+      notification: false,
     });
-
-    
 
     return {
       amountOfCartedItems,
@@ -141,6 +163,8 @@ export default {
       /*modal*/
       modalShow,
       showProperty,
+      discloseModal,
+      /*methods*/
     };
   },
 };

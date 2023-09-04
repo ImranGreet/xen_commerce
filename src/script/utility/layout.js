@@ -1,12 +1,12 @@
 import { ref } from "vue";
-import { useRouter } from "vue-router";
-let fullWidth = ref(false);
 import { cartedList } from "../Cart/purchase";
 
-
+let fullWidth = ref(false);
 
 let wishButton = ref(false);
 let noFlex = ref(false);
+
+let discloseModal = ref(false);
 
 const fullWindow = function () {
   fullWidth.value = true;
@@ -34,10 +34,15 @@ const applyFlex = function () {
   console.log(noFlex.value);
 };
 
+window.addEventListener("resize", () => {
+  discloseModal.value = false;
+});
+
 export {
   fullWidth,
   wishButton,
   noFlex,
+  discloseModal,
   /*methods*/
   fullWindow,
   halfScreen,

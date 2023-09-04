@@ -6,6 +6,7 @@
     }"
   >
     <SearchAndCartNav />
+    <NavigationMenu :class="{ block: discloseModal, hidden: !discloseModal }" />
     <div
       :class="{
         'max-w-7xl mx-auto ': !fullWidth,
@@ -19,20 +20,27 @@
 </template>
 
 <script>
+/*components*/
 import SearchAndCartNav from "../components/Navigation/SearchAndCartNav.vue";
 import Footer from "../Pages/Footer.vue";
-import { fullWidth, noFlex } from "../script/utility/layout";
+import NavigationMenu from "../components/modal/Navigation-menu.vue";
+
+/*compositon api*/
+import { discloseModal, fullWidth, noFlex } from "../script/utility/layout";
 
 export default {
   name: "UserLayout",
   components: {
     SearchAndCartNav,
     Footer,
+    NavigationMenu,
   },
   setup() {
     return {
       fullWidth,
       noFlex,
+      discloseModal,
+      /*methods*/
     };
   },
 };

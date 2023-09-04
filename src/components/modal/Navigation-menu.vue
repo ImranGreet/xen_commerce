@@ -1,5 +1,7 @@
 <template>
-  <section class="w-96 bg-white  border-r border-gray-200">
+  <section
+    class="w-11/12 mx-auto sm:w-96 sm:mx-0 bg-white border-r border-gray-200"
+  >
     <div class="px-2 py-2 bg-slate-100">
       <div class="w-full flex flex-col justify-between">
         <div class="flex justify-between items-center gap-x-4">
@@ -18,7 +20,10 @@
             >
               {{ profileName }}
             </h3>
-            <small class="text-md tracking-wider leading-7 font-semibold text-blue-700">Welcome Back</small>
+            <small
+              class="text-md tracking-wider leading-7 font-semibold text-blue-700"
+              >Welcome Back</small
+            >
           </div>
           <button class="hover:text-gray-800">
             <font-awesome-icon icon="fa-solid fa-chevron-right" />
@@ -58,7 +63,7 @@
     </ul>
     <!-- end navigation menu -->
     <!-- more option -->
-    <div class="border-t border-gray-300 ">
+    <div class="border-t border-gray-300">
       <!-- navigation-menu -->
       <ul class="flex flex-col justify-between items-stretch px-2 text-lg py-3">
         <li>
@@ -87,8 +92,8 @@
           <router-link
             to="#"
             class="text-gray-700 leading-7 tracking-wide border border-gray-900/40 px-8 py-2"
-            ><font-awesome-icon icon="fa-solid fa-globe" /><span
-              class="ml-2">English</span
+            ><font-awesome-icon icon="fa-solid fa-globe" /><span class="ml-2"
+              >English</span
             ></router-link
           >
         </li>
