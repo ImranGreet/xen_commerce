@@ -2,7 +2,7 @@
   <section
     :class="{
       'min-h-screen': noFlex,
-      'flex flex-col justify-between min-h-screen': !noFlex,
+      'flex flex-col justify-between min-h-screen ': !noFlex,
     }"
   >
     <SearchAndCartNav />
@@ -13,7 +13,9 @@
         'max-w-full mx-auto': fullWidth,
       }"
     >
-      <router-view></router-view>
+      <div :class="{ 'm-5': $route.name !== 'product-details' }">
+        <router-view></router-view>
+      </div>
     </div>
     <Footer />
   </section>

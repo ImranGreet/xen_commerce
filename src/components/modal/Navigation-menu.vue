@@ -55,7 +55,7 @@
     <ul class="flex flex-col justify-between items-stretch px-2 py-3">
       <li v-for="cat in availableCategories" :key="cat">
         <router-link
-          to="#"
+          :to="{ name: 'category', params: { category: cat } }"
           class="text-lg text-gray-700 leading-7 tracking-wide capitalize"
           >{{ cat }}</router-link
         >
