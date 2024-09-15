@@ -15,13 +15,7 @@
       Our Products
     </router-link>
 
-    <router-link class="uppercase tracking-wide" :to="{ name: 'Login' }">
-      Login
-    </router-link>
-
-    <router-link class="uppercase tracking-wide" :to="{ name: 'Registration' }">
-      Registration
-    </router-link>
+    
   </section>
 </template>
 

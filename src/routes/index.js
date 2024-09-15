@@ -82,24 +82,7 @@ const routes = [
     ],
   },
 
-  /*authentication*/
-  {
-    path: "/xenmesh/authentication",
-    name: "Authentication",
-    component: () => import("../Layouts/Authentication.vue"),
-    children: [
-      {
-        path: "/authentication",
-        name: "Login",
-        component: () => import("../Pages/Auth/LoginAuth.vue"),
-      },
-      {
-        path: "/Registration",
-        name: "Registration",
-        component: () => import("../Pages/Auth/RegistrationAuth.vue"),
-      },
-    ],
-  },
+ 
 ];
 
 const router = createRouter({

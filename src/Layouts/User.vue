@@ -8,6 +8,7 @@
     <SearchAndCartNav />
     <NavigationMenu :class="{ block: discloseModal, hidden: !discloseModal }" />
     <div
+    class="my-20"
       :class="{
         'max-w-7xl mx-auto ': !fullWidth,
         'max-w-full mx-auto': fullWidth,

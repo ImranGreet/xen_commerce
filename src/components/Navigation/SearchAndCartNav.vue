@@ -34,17 +34,6 @@
         >
           Our Products
         </router-link>
-
-        <router-link class="uppercase tracking-wide" :to="{ name: 'Login' }">
-          Login
-        </router-link>
-
-        <router-link
-          class="uppercase tracking-wide"
-          :to="{ name: 'Registration' }"
-        >
-          Registration
-        </router-link>
       </div>
       <!-- category end -->
 
@@ -84,16 +73,6 @@
           <span class="font-serif text-xl">
             <font-awesome-icon icon="fa-regular fa-bell" />
           </span>
-        </router-link>
-
-        <router-link
-          @mouseenter="showProperty.profileView = true"
-          @mouseover="showProperty.profileView = true"
-          @mouseout="showProperty.profileView = false"
-          to="#"
-          class="hidden lg:flex h-8 w-8 flex-col items-center justify-center rounded-full bg-gray-700 text-white"
-        >
-          <span class="text-xl">I</span>
         </router-link>
       </div>
     </div>
