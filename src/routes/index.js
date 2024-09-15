@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory,createWebHistory } from "vue-router";
 /*store or state*/
 import { useCategoryStore } from "../store/category";
 import { useProductsByCategory } from "../store/productsbycat";
@@ -86,7 +86,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
