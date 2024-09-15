@@ -1,15 +1,16 @@
 import { ref } from "vue";
 
-const userLocation = {
-  latitude: ref(""),
-  longitude: ref(""),
-};
+export default function useLocationProperties() {
+  const locationProperties = {
+    lat: ref(""),
+    long: ref(""),
+  };
+  window.navigator
+    ? window.navigator.geolocation.getCurrentPosition((position) => {
+        locationProperties.lat.value = position.coords.latitude;
+        locationProperties.long.value = position.coords.longitude;
+      })
+    : "Location is not supported by your browser";
 
-class Geolocation {
-  constructor(lat, long) {
-    userLocation.latitude.value = lat;
-    userLocation.longitude.value = long;
-  }
+  return locationProperties;
 }
-
-export { userLocation, Geolocation };

@@ -11,7 +11,9 @@
 </template>
 
 <script>
+import { onBeforeRouteUpdate } from "vue-router";
 import ProductInfo from "../components/Global/ProductInfo.vue";
+
 import { useProductsByCategory } from "../store/productsbycat";
 
 export default {
@@ -21,6 +23,12 @@ export default {
   },
   setup() {
     const { productsByCategory } = useProductsByCategory();
+    onBeforeRouteUpdate(async (to, from) => {
+      if (to.params.category !== to.params.category) {
+        const { retrieveProductsAccordingToCat } = useProductsByCategory();
+        await retrieveProductsAccordingToCat(to.params.category);
+      }
+    });
     return {
       productsByCategory,
     };

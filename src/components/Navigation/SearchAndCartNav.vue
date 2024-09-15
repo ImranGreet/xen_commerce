@@ -120,6 +120,7 @@
 
 <script>
 import { onMounted, ref } from "vue";
+
 import {
   amountOfCartedItems,
   amountOfWishedItems,

@@ -23,35 +23,43 @@
           >
             Sign in to your account
           </h1>
-          <form class="space-y-4 md:space-y-6" action="#">
+          <form
+            @submit.prevent="userLoginWay(loginDetails)"
+            class="space-y-4 md:space-y-6"
+            action="#"
+          >
             <div>
-              <label
-                for="email"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Your email</label
-              >
-              <input
-                type="email"
-                name="email"
+              <FormKit
+                type="text"
+                v-model="username"
+                name="username"
                 id="email"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                label=" username"
+                validation="required|text"
+                validation-visibility="live"
+                input-class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                label-class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 placeholder="name@company.com"
-                required=""
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-sm"
               />
             </div>
             <div>
-              <label
-                for="password"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >Password</label
-              >
-              <input
+              <FormKit
                 type="password"
+                v-model="password"
                 name="password"
                 id="password"
+                validation="required|password"
+                validation-visibility="live"
                 placeholder="••••••••"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required=""
+                label="Password"
+                input-class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                label-class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-sm"
               />
             </div>
 
@@ -77,9 +85,23 @@
 </template>
 
 <script>
+import { loginDetails } from "../../script/Auth/registration";
+import { useAuthentication } from "../../store/Auth";
+const { useUserLogin } = useAuthentication();
+const { username, password } = loginDetails;
 export default {
   name: "Login",
+  setup() {
+    const userLoginWay = async function (payload) {
+      await useUserLogin(payload);
+    };
+    return {
+      username,
+      password,
+      useUserLogin,
+      userLoginWay,
+      loginDetails,
+    };
+  },
 };
 </script>
-
-<style></style>

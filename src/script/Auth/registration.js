@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { userLocation } from "./geolocation";
+import useLocationProperties from "./geolocation";
 
 const useUserDetails = {
   email: ref(""),
@@ -13,12 +13,18 @@ const useUserDetails = {
     city: ref(""),
     street: ref(""),
     number: ref(""),
+    zipcode: ref(""),
   },
   Geolocation: {
-    lat: userLocation.latitude.value,
-    long: userLocation.longitude.value,
+    lat: useLocationProperties().lat,
+    long: useLocationProperties().long,
   },
   phone: ref(""),
 };
 
-export { useUserDetails };
+const loginDetails = {
+  username: ref("mor_2314"),
+  password: ref("83r5^_"),
+};
+
+export { useUserDetails, loginDetails };

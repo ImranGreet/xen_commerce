@@ -12,29 +12,42 @@
           Create a Account
         </h1>
         <!-- form -->
-        <form class="w-full flex flex-col justify-between space-y-4">
+        <form
+          v-on:submit.prevent="createRegistration(useUserDetails)"
+          class="w-full flex flex-col justify-between space-y-4"
+        >
           <div class="input-element-container">
             <div class="w-full lg:w-1/2">
-              <label for="email" class="input-element-label">Email</label>
-              <input
+              <FormKit
                 type="email"
+                v-model="email"
+                validation="required|email"
+                validation-visibility="live"
+                label="Email"
                 placeholder="Enter Your Email"
-                class="input-element"
+                input-class="input-element"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class=" list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
               <ErrorShow class="hidden"
                 >Email Address Is Already Taken</ErrorShow
               >
             </div>
             <div class="w-full lg:w-1/2">
-              <label
-                for="email"
-                class="text-lg font-semibold leading-relaxed tracking-wider"
-                >Email</label
-              >
-              <input
+              <FormKit
                 type="text"
+                v-model="username"
+                validation="required|text"
+                validation-visibility="live"
+                label="Username"
                 placeholder="Enter Your Username"
-                class="input-element"
+                input-class="input-element"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
@@ -42,35 +55,68 @@
 
           <div class="input-element-container">
             <div class="w-full">
-              <label
-                for="email"
-                class="text-lg font-semibold leading-relaxed tracking-wider"
-                >Password</label
-              >
-              <input
-                type="text"
+              <FormKit
+                type="password"
+                v-model="password"
+                validation="required|password"
+                validation-visibility="live"
+                label="Password"
                 placeholder="Enter Your Username"
-                class="input-element placeholder:text-start"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
+              />
+            </div>
+            <div class="w-full">
+              <FormKit
+                type="password"
+                label="Confirm Password"
+                v-model="password"
+                validation="required|password"
+                validation-visibility="live"
+                placeholder="Enter Your Username"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
+
           <!-- password end -->
           <!-- name start -->
           <div class="input-element-container">
             <div class="w-full lg:w-1/2">
-              <label for="email" class="input-element-label">First Name</label>
-              <input
-                type="email"
+              <FormKit
+                type="text"
+                v-model="firstname"
+                label="First Name"
+                validation="required|text"
+                validation-visibility="live"
                 placeholder="Enter Your first name"
-                class="input-element"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
             <div class="w-full lg:w-1/2">
-              <label for="email" class="input-element-label">Last Name</label>
-              <input
+              <FormKit
                 type="text"
+                v-model="lastname"
+                label="Last Name"
+                validation="required|text"
+                validation-visibility="live"
                 placeholder="Enter Your last name"
-                class="input-element"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
@@ -86,54 +132,83 @@
 
           <div class="input-element-container">
             <div class="w-full lg:w-1/2">
-              <label for="city" class="input-element-label">City</label>
-              <input
+              <FormKit
                 type="text"
-                placeholder="Enter Your city name"
-                class="input-element"
+                v-model="city"
+                label="City"
+                validation="required|text"
+                validation-visibility="live"
+                placeholder="Enter Your City name"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
             <div class="w-full lg:w-1/2">
-              <label for="street" class="input-element-label"
-                >Street Name</label
-              >
-              <input
+              <FormKit
                 type="text"
-                placeholder="Enter Your street name"
-                class="input-element"
+                v-model="street"
+                label="Street Name"
+                validation="required|text"
+                validation-visibility="live"
+                placeholder="Enter Your Street Name"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
           <div class="input-element-container">
             <div class="w-full lg:w-1/2">
-              <label for="street number" class="input-element-label"
-                >Street number</label
-              >
-              <input
+              <FormKit
                 type="text"
-                placeholder="Enter Your street number "
-                class="input-element"
+                v-model="street"
+                label="Street number"
+                validation="required|text"
+                validation-visibility="live"
+                placeholder="Enter Your Street Number"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
             <div class="w-full lg:w-1/2">
-              <label for="text" class="input-element-label">Zipcode</label>
-              <input
+              <FormKit
                 type="text"
+                v-model="zipcode"
+                label="Zipcode"
+                validation="required|text"
+                validation-visibility="live"
                 placeholder="Enter Zipcode"
-                class="input-element"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
 
           <div class="input-element-container">
             <div class="w-full">
-              <label for="phone" class="input-element-label"
-                >Phone Number</label
-              >
-              <input
+              <FormKit
                 type="text"
-                placeholder="Enter Your Phone Number"
-                class="input-element placeholder:text-start"
+                v-model="phone"
+                label="Phone Number"
+                validation="required|text"
+                validation-visibility="live"
+                placeholder="Enter Zipcode"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
@@ -141,28 +216,40 @@
           <!-- geolocation start -->
           <div class="input-element-container">
             <div class="w-full lg:w-1/2">
-              <label for="street number" class="input-element-label"
-                >Latitude</label
-              >
-              <input
+              <FormKit
                 type="text"
-                placeholder="latitude "
-                class="input-element"
+                v-model="lat"
+                label="Latitude"
+                validation="required|text"
+                validation-visibility="live"
+                placeholder="Latitude"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
             <div class="w-full lg:w-1/2">
-              <label for="text" class="input-element-label">Longitude</label>
-              <input
+              <FormKit
                 type="text"
-                placeholder="longitude "
-                class="input-element"
+                v-model="long"
+                label="Longitude"
+                validation="required|text"
+                validation-visibility="live"
+                placeholder="Latitude"
+                input-class="input-element placeholder:text-start"
+                label-class="text-lg font-semibold leading-relaxed tracking-wider"
+                help-class="text-xs text-gray-500"
+                messages-class="list-none p-0 mt-1 mb-0"
+                message-class="text-red-500 mb-1 text-base"
               />
             </div>
           </div>
           <!-- geolocation end -->
           <!-- submit button -->
           <div class="w-full">
-            <button class="submit-button">Submit</button>
+            <button type="submit" class="submit-button">Submit</button>
           </div>
         </form>
         <p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-3">
@@ -180,18 +267,50 @@
 </template>
 
 <script>
+import { FormKit } from "@formkit/vue";
 import CustomInput from "../../components/Auth/CustomInput.vue";
 import CustomLabel from "../../components/Auth/CustomLabel.vue";
 import ErrorShow from "../../components/Auth/ErrorShow.vue";
-
+/*Use user registration*/
+import { useUserDetails } from "../../script/Auth/registration";
+import { useAuthentication } from "../../store/Auth";
 export default {
   name: "Registration-form",
-  components: { CustomInput, CustomLabel, ErrorShow },
+  components: { CustomInput, CustomLabel, ErrorShow, FormKit },
 
   setup() {
-    const FirstName = "Imran Hossain";
+    const {
+      email,
+      username,
+      password,
+      phone,
+      zipcode,
+      name: { firstname, lastname },
+      address: { city, street, number },
+      Geolocation: { lat, long },
+    } = useUserDetails;
+    const { userUserRegistration } = useAuthentication();
+
+    const createRegistration = async function (userInfo) {
+      console.log(userInfo);
+      await userUserRegistration(userInfo);
+    };
     return {
-      FirstName,
+      email,
+      username,
+      password,
+      firstname,
+      lastname,
+      city,
+      street,
+      number,
+      lat,
+      long,
+      zipcode,
+      phone,
+      useUserDetails,
+      createRegistration,
+      userUserRegistration,
     };
   },
 };
